@@ -1,0 +1,22 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  "DbSettings": {
+    "Connection": "*******************"
+  },
+  "EmailConfiguration": {
+    "From": "*******************",
+    "SmtpServer": "smtp.yandex.ru",
+    "Port": 465,
+    "Username": "*******************",
+    "Password": "*******************",
+    "Subject": "Обращение принято",
+    "Content": "Обращение принято под #{feedback_id}",
+    "To": "*******************"
+  }
+}
