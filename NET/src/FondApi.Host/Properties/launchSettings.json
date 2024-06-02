@@ -1,0 +1,33 @@
+{
+  "profiles": {
+    "FondApi.Host": {
+      "commandName": "Project",
+      "launchUrl": "healtcheck",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": "true"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "publishAllPorts": true
+    },
+    "FondApi.Host": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ALLOWED_EXTENSIONS": ".pdf,.docx,.xls,.xlsx,.doc,.docx,.rar,.zip"
+      }
+    }
+  },
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:32441",
+      "sslPort": 0
+    }
+  }
+}
