@@ -5,17 +5,17 @@ namespace FondApi.Business.Counter
 {
     public class CounterService : ICounterService
     {
-        private readonly ICounterRepository _mainRepo;
+        private readonly ICounterRepository _repo;
 
         public CounterService(
-            ICounterRepository newsRepo)
+            ICounterRepository repo)
         {
-            _mainRepo = newsRepo;
+            _repo = repo;
         }
 
         public async Task<IEnumerable<GetCountersResponse>> GetCountersAsync()
         {
-            var result = await _mainRepo.GetCountersAsync();
+            var result = await _repo.GetCountersAsync();
 
             return result.Select(n => new GetCountersResponse(n));
         }

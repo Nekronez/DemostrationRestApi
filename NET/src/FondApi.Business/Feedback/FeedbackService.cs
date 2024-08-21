@@ -37,14 +37,14 @@ namespace FondApi.Business.Feedback
             
             if (request.Attachment is not null)
             {
-                string uploads = Path.Combine(_env.ContentRootPath, "wwwroot", "files");
+                string uploadPath = Path.Combine(_env.ContentRootPath, "wwwroot", "files");
 
-                Directory.CreateDirectory(Path.Combine(_env.ContentRootPath, "wwwroot", "files"));
+                Directory.CreateDirectory(uploadPath);
                 foreach (IFormFile file in request.Attachment)
                 {
                     if (file.Length > 0)
                     {
-                        string filePath = Path.Combine(uploads, $"{feedbackId}_{file.FileName}");
+                        string filePath = Path.Combine(uploadPath, $"{feedbackId}_{file.FileName}");
                         using Stream fileStream = new FileStream(filePath, FileMode.Create);
                         await file.CopyToAsync(fileStream);
                     }
