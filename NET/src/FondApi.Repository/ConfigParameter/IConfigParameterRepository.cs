@@ -3,5 +3,5 @@
 namespace FondApi.Repository.ConfigParameter;
 public interface IConfigParameterRepository
 {
-    Task<IEnumerable<ConfigParameterDb>> GetByKeysAsync();
+    Task<IEnumerable<ConfigParameterDb>> GetByKeysAsync(IEnumerable<string> keys);
 }

@@ -5,6 +5,9 @@ namespace FondApi.Business.RunningLine;
 
 public class RunningLineService : IRunningLineService
 {
+    private const string _runningLineTextKey = "RUNNING_LINE_TEXT";
+    private const string _runningLineUrlKey = "RUNNING_LINE_URL";
+
     private readonly IConfigParameterRepository _configParameterRepository;
 
     public RunningLineService(
@@ -16,12 +19,12 @@ public class RunningLineService : IRunningLineService
     public async Task<GetRunnungLineResponse> GetRunnungLineAsync()
     {
         var configs = await _configParameterRepository
-            .GetByKeysAsync();
+            .GetByKeysAsync(new[] { _runningLineTextKey, _runningLineUrlKey });
 
         return new GetRunnungLineResponse
         {
-            Title = configs.Where(c => c.Key == "RUNNING_LINE_TEXT").First()?.Value,
-            TargetUrl = configs.Where(c => c.Key == "RUNNING_LINE_URL").First()?.Value,
+            Title = configs.Where(c => c.Key == _runningLineTextKey).First()?.Value,
+            TargetUrl = configs.Where(c => c.Key == _runningLineUrlKey).First()?.Value,
         };
     }
 }

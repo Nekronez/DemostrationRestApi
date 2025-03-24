@@ -13,13 +13,16 @@ public class ConfigParameterRepository : IConfigParameterRepository
         _dbConnectionFactory = dbConnectionFactory;
     }
 
-    public async Task<IEnumerable<ConfigParameterDb>> GetByKeysAsync()
+    public async Task<IEnumerable<ConfigParameterDb>> GetByKeysAsync(IEnumerable<string> keys)
     {
         using var db = _dbConnectionFactory.GetConnection();
 
         var command = new CommandDefinition(
-                @"SELECT * FROM f_api_get_running_line_data();"
-            );
+            @"SELECT id, key, value FROM config_parameter WHERE key = ANY(@in_keys);",
+            new
+            {
+                in_keys = keys.ToArray(),
+            });
 
         return await db.QueryAsync<ConfigParameterDb>(command);
     }

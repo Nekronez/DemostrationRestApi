@@ -25,7 +25,8 @@ namespace FondApi.Business.Extenstions
                     .AddScoped<IVacancyService, VacancyService>()
                     .AddScoped<ITenderService, TenderService>()
                     .AddScoped<IVideoService, VideoService>()
-                    .AddScoped<IEventService, EventService>();
+                    .AddScoped<IEventService, EventService>()
+                    .AddScoped<IStructureService, StructureService>();
         }
     }
 }

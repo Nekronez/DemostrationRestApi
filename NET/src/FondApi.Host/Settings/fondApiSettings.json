@@ -7,7 +7,7 @@
   },
   "AllowedHosts": "*",
   "DbSettings": {
-    "Connection": "*******************"
+    "Connection": "Server=158.160.54.99; Port=5432; Username=fond; Password=Qq12345678; Database=fond; Pooling=true; MinPoolSize=1; MaxPoolSize=300; ConnectionLifeTime=60;"
   },
   "EmailConfiguration": {
     "From": "*******************",
